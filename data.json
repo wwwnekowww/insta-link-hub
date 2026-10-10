@@ -1,0 +1,165 @@
+{
+  "demo": true,
+  "accounts": [
+    {
+      "id": "photo-gear",
+      "name": "사진 장비 노트",
+      "handle": "@photo.gear.demo",
+      "category": "사진 · 촬영 장비",
+      "tagline": "촬영에 도움 되는 장비와 소품을 모아요.",
+      "emoji": "📷",
+      "tone": "photo",
+      "coverLabel": "FIELD NOTES / CAMERA",
+      "links": [
+        { "icon": "▣", "title": "카메라·렌즈 추천", "subtitle": "촬영 목적별 장비 모음" },
+        { "icon": "◉", "title": "조명과 촬영 소품", "subtitle": "집과 야외 촬영 준비" },
+        { "icon": "▤", "title": "사진 정리·보관 도구", "subtitle": "메모리 카드와 백업 용품" },
+        { "icon": "↗", "title": "최근 촬영 장비 리뷰", "subtitle": "새로 써본 제품 기록" }
+      ]
+    },
+    {
+      "id": "driving-gear",
+      "name": "운전 생활 가이드",
+      "handle": "@drive.life.demo",
+      "category": "운전 · 차량 용품",
+      "tagline": "차 안에서 자주 쓰는 실용템을 소개해요.",
+      "emoji": "🚘",
+      "tone": "drive",
+      "coverLabel": "ON THE ROAD / DRIVE",
+      "links": [
+        { "icon": "⌁", "title": "차량용 편의 용품", "subtitle": "매일 운전에 필요한 아이템" },
+        { "icon": "▣", "title": "차량 정리·수납", "subtitle": "차 안을 깔끔하게 유지하기" },
+        { "icon": "⚑", "title": "안전·비상용품 체크", "subtitle": "차에 두면 유용한 준비물" },
+        { "icon": "↗", "title": "운전용품 추천 모음", "subtitle": "용도별로 한 번에 보기" }
+      ]
+    },
+    {
+      "id": "game-gear",
+      "name": "플레이 셋업",
+      "handle": "@play.setup.demo",
+      "category": "게임 · 게이밍 기어",
+      "tagline": "게임과 책상 셋업에 필요한 장비를 모아요.",
+      "emoji": "🎮",
+      "tone": "game",
+      "coverLabel": "PLAYER SETUP / GEAR",
+      "links": [
+        { "icon": "⌘", "title": "키보드·마우스", "subtitle": "플레이 스타일에 맞는 입력 장비" },
+        { "icon": "◉", "title": "모니터·헤드셋", "subtitle": "화면과 사운드 업그레이드" },
+        { "icon": "▤", "title": "책상 셋업 아이템", "subtitle": "편하게 오래 쓰는 데스크 용품" },
+        { "icon": "↗", "title": "게임 주변기기 모음", "subtitle": "용도별 추천 리스트" }
+      ]
+    },
+    {
+      "id": "women-20s",
+      "name": "이십대 픽",
+      "handle": "@twenties.pick.demo",
+      "category": "20대 여성 · 데일리 추천",
+      "tagline": "일상에서 자주 쓰는 제품을 직접 골라요.",
+      "emoji": "✳",
+      "tone": "women",
+      "coverLabel": "DAILY EDIT / PICKS",
+      "posts": [
+        {
+          "index": 1,
+          "id": "daily-style-picks",
+          "title": "출근 전 10분, 빠르게 준비하는 데일리템",
+          "products": [
+            { "index": 1, "title": "가벼운 데일리 숄더백", "subtitle": "출근과 약속에 함께 들기 좋은 크기", "url": "" },
+            { "index": 2, "title": "슬림 카드지갑", "subtitle": "가방 속 부피를 줄이는 작은 지갑", "url": "" },
+            { "index": 3, "title": "휴대용 보조배터리", "subtitle": "외출 중 배터리 걱정을 덜어주는 아이템", "url": "" },
+            { "index": 4, "title": "컴팩트 파우치", "subtitle": "립밤과 작은 소지품을 한곳에", "url": "" },
+            { "index": 5, "title": "심플 헤어 집게핀", "subtitle": "간단한 스타일 정리에 쓰기 좋은 소품", "url": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parenting-gear",
+      "name": "함께 크는 하루",
+      "handle": "@grow.together.demo",
+      "category": "육아 · 가족 생활",
+      "tagline": "육아하는 가족의 일상을 돕는 제품을 모아요.",
+      "emoji": "🧸",
+      "tone": "parent",
+      "coverLabel": "FAMILY DAYS / PICKS",
+      "links": [
+        { "icon": "⌂", "title": "수유·식사 준비", "subtitle": "매일의 식사 시간을 위한 용품" },
+        { "icon": "▣", "title": "외출·이동 필수템", "subtitle": "가방에 챙기는 육아 아이템" },
+        { "icon": "◌", "title": "놀이·정리 아이디어", "subtitle": "집에서 함께 보내는 시간" },
+        { "icon": "↗", "title": "연령별 추천 모음", "subtitle": "시기별로 살펴보기" }
+      ]
+    },
+    {
+      "id": "health-picks",
+      "name": "건강한 선택",
+      "handle": "@wellness.choice.demo",
+      "category": "건강 · 웰니스 제품",
+      "tagline": "건강한 일상을 위한 제품과 도구를 살펴봐요.",
+      "emoji": "＋",
+      "tone": "health",
+      "coverLabel": "WELLNESS / EVERY DAY",
+      "links": [
+        { "icon": "⌁", "title": "홈트·운동 도구", "subtitle": "집에서 움직이는 데 필요한 것들" },
+        { "icon": "◉", "title": "수면·휴식 아이템", "subtitle": "편안한 생활을 돕는 제품" },
+        { "icon": "▤", "title": "건강 관리용품", "subtitle": "일상에서 쓰는 관리 도구" },
+        { "icon": "↗", "title": "웰니스 추천 모음", "subtitle": "용도별 제품 둘러보기" }
+      ]
+    },
+    {
+      "id": "account-07",
+      "name": "추가 계정 07",
+      "handle": "@account.07.demo",
+      "category": "컨셉 미정",
+      "tagline": "컨셉을 정하면 이 페이지를 맞춰 채울게요.",
+      "emoji": "07",
+      "tone": "neutral",
+      "links": [
+        { "icon": "＋", "title": "대표 링크", "subtitle": "계정의 주요 콘텐츠" },
+        { "icon": "▤", "title": "추천 모음", "subtitle": "주제별로 정리한 링크" },
+        { "icon": "↗", "title": "전체 콘텐츠 보기", "subtitle": "새 링크가 여기에 추가돼요" }
+      ]
+    },
+    {
+      "id": "account-08",
+      "name": "추가 계정 08",
+      "handle": "@account.08.demo",
+      "category": "컨셉 미정",
+      "tagline": "컨셉을 정하면 이 페이지를 맞춰 채울게요.",
+      "emoji": "08",
+      "tone": "neutral",
+      "links": [
+        { "icon": "＋", "title": "대표 링크", "subtitle": "계정의 주요 콘텐츠" },
+        { "icon": "▤", "title": "추천 모음", "subtitle": "주제별로 정리한 링크" },
+        { "icon": "↗", "title": "전체 콘텐츠 보기", "subtitle": "새 링크가 여기에 추가돼요" }
+      ]
+    },
+    {
+      "id": "account-09",
+      "name": "추가 계정 09",
+      "handle": "@account.09.demo",
+      "category": "컨셉 미정",
+      "tagline": "컨셉을 정하면 이 페이지를 맞춰 채울게요.",
+      "emoji": "09",
+      "tone": "neutral",
+      "links": [
+        { "icon": "＋", "title": "대표 링크", "subtitle": "계정의 주요 콘텐츠" },
+        { "icon": "▤", "title": "추천 모음", "subtitle": "주제별로 정리한 링크" },
+        { "icon": "↗", "title": "전체 콘텐츠 보기", "subtitle": "새 링크가 여기에 추가돼요" }
+      ]
+    },
+    {
+      "id": "account-10",
+      "name": "추가 계정 10",
+      "handle": "@account.10.demo",
+      "category": "컨셉 미정",
+      "tagline": "컨셉을 정하면 이 페이지를 맞춰 채울게요.",
+      "emoji": "10",
+      "tone": "neutral",
+      "links": [
+        { "icon": "＋", "title": "대표 링크", "subtitle": "계정의 주요 콘텐츠" },
+        { "icon": "▤", "title": "추천 모음", "subtitle": "주제별로 정리한 링크" },
+        { "icon": "↗", "title": "전체 콘텐츠 보기", "subtitle": "새 링크가 여기에 추가돼요" }
+      ]
+    }
+  ]
+}
