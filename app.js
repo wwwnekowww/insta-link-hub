@@ -29,12 +29,13 @@ async function copyPageLink(id) {
 }
 
 function renderHome() {
+  const hasDemoProfiles = dataset.accounts.some((account) => account.demo);
   app.innerHTML = `
     <section class="hero">
       <span class="eyebrow">A SIMPLE LINK PAGE FOR EACH ACCOUNT</span>
       <h1>계정마다 다른 취향,<br><em>링크는 한곳에</em></h1>
-      <p class="hero-copy">인스타 프로필에 연결할 수 있는 링크 페이지 예시예요.<br>계정을 고르면 각 페이지를 미리 볼 수 있어요.</p>
-      <div class="hero-stats"><span>10</span> SAMPLE PROFILES <i></i> MOBILE READY</div>
+      <p class="hero-copy">계정별 링크를 한곳에서 모아 보여줘요.<br>계정을 고르면 해당 계정의 상품과 콘텐츠를 볼 수 있어요.</p>
+      <div class="hero-stats"><span>${dataset.accounts.length}</span> ACCOUNT PAGES <i></i> MOBILE READY</div>
     </section>
     <section class="directory" aria-labelledby="directory-title">
       <div class="section-heading"><div><span class="eyebrow">PICK A PROFILE</span><h2 id="directory-title">어떤 계정을 볼까요?</h2></div><span class="section-count">01 — 10</span></div>
@@ -47,11 +48,11 @@ function renderHome() {
           </a>`).join("")}
       </div>
     </section>
-    <aside class="demo-note"><span>✳</span><p><strong>이 시안의 링크는 예시예요.</strong><br>계정과 실제 링크를 받으면 각 버튼을 해당 주소로 연결할 수 있어요.</p></aside>`;
+    ${hasDemoProfiles ? '<aside class="demo-note"><span>✳</span><p><strong>일부 계정은 아직 예시 링크를 보여줘요.</strong><br>검수 완료된 계정 콘텐츠가 등록되면 실제 주소로 연결됩니다.</p></aside>' : ''}`;
 }
 
 function renderProfile(account) {
-  const hasPostBundles = Array.isArray(account.posts);
+  const posts = Array.isArray(account.posts) ? account.posts : [];
   const links = account.links || [];
   app.innerHTML = `
     <a class="back-link" href="#/">← 계정 목록</a>
@@ -70,9 +71,9 @@ function renderProfile(account) {
           <div class="number-search-control"><span aria-hidden="true">#</span><input id="profile-number-search" type="search" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="번호 입력 (예: 03)" data-number-search><button type="button" data-clear-search>초기화</button></div>
           <p class="number-search-status" aria-live="polite" data-search-status>번호를 입력하면 해당 링크만 표시됩니다.</p>
         </div>
-        ${hasPostBundles ? `
+        ${posts.length ? `
           <section class="post-bundles" aria-label="${safeText(account.name)} 게시물별 상품 링크">
-            ${account.posts.map((post, postPosition) => `
+            ${posts.map((post, postPosition) => `
               <article class="post-bundle" data-default-expanded="${postPosition === 0}">
                 <button class="post-toggle" type="button" aria-expanded="${postPosition === 0}" aria-controls="products-${safeText(account.id)}-${safeText(post.id || postPosition + 1)}" data-toggle-post>
                   <span class="post-toggle-title"><span class="post-index">POST ${String(post.index || postPosition + 1).padStart(2, "0")}</span><strong>${safeText(post.title)}</strong></span>
@@ -89,21 +90,22 @@ function renderProfile(account) {
                     </li>`).join("")}
                 </ol>
               </article>`).join("")}
-          </section>` : `
+          </section>` : ''}
+        ${links.length ? `
           <div class="profile-links" aria-label="${safeText(account.name)} 링크">
             ${links.map((link, index) => `
-              <a class="profile-link ${index === 0 ? "featured" : ""}" data-search-number="${String(link.index || index + 1).padStart(2, "0")}" href="#demo-link" data-demo-link aria-disabled="true">
+              <a class="profile-link ${index === 0 && !posts.length ? "featured" : ""} ${link.url ? "" : "demo-link"}" data-search-number="${String(link.index || index + 1).padStart(2, "0")}" href="${safeText(link.url || "#demo-link")}" ${link.url ? 'target="_blank" rel="noopener noreferrer"' : 'data-demo-link aria-disabled="true"'}>
                 <span class="link-index">${String(link.index || index + 1).padStart(2, "0")}</span>
                 <span class="link-icon">${safeText(link.icon || "↗")}</span>
                 <span class="link-label"><strong>${safeText(link.title)}</strong><small>${safeText(link.subtitle)}</small></span>
                 <span class="link-arrow">↗</span>
               </a>`).join("")}
-          </div>`}
+          </div>` : ''}
         <button class="share-button" type="button" data-copy-page="${safeText(account.id)}"><span>↗</span> 이 페이지 주소 복사</button>
         <div class="profile-footer"><span>LINKS · CONTENT · CONTACT</span></div>
       </div>
     </section>
-    <p class="profile-demo-caption">페이지 디자인 예시 · 버튼은 아직 실제 링크와 연결되지 않았어요.</p>`;
+    <p class="profile-demo-caption">${account.demo ? '페이지 디자인 예시 · 검수된 콘텐츠가 등록되면 실제 링크로 교체됩니다.' : '링크를 누르면 해당 상품 또는 콘텐츠 페이지가 새 창에서 열립니다.'}</p>`;
 }
 
 function renderNotFound() {
@@ -190,7 +192,7 @@ window.addEventListener("hashchange", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-fetch("data.json?v=6", { cache: "no-store" })
+fetch("data.json?v=7", { cache: "no-store" })
   .then((response) => {
     if (!response.ok) throw new Error("계정 데이터를 불러오지 못했어요.");
     return response.json();
