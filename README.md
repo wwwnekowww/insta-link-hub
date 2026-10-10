@@ -48,7 +48,7 @@ The first command previews the import. The second appends one five-product post 
 
 ## Live hosting and publishing
 
-The public site is deployed at https://ehdudssal3-hub.github.io/insta-link-hub/. GitHub Actions redeploys it whenever a commit reaches `main`. The repository is public for GitHub Free Pages, and currently has no collaborators; visitors can read the source, but only the owner account can write to it.
+The public site is deployed at https://wwwnekowww.github.io/insta-link-hub/. GitHub Actions redeploys it whenever a commit reaches `main`. The repository is public for GitHub Free Pages, and currently has no collaborators; visitors can read the source, but only the owner account can write to it.
 
 After signing in to GitHub once on the machine that runs the agent (`git credential-manager github login --browser`), the publisher uses one of the commands above from the project root. For example, an existing women-account job can still be published with:
 
