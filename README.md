@@ -27,11 +27,15 @@ python scripts/import_link_hub.py --job data/jobs/<job-folder> --apply
 
 The first command previews the import. The second appends one five-product post to the `women-20s` account in `site/data.json`; rerunning it for the same job is safe. Product numbers continue across posts, so the shared number search can find each item. The importer uses reviewed card copy and verified Coupang affiliate URLs. It never publishes to Instagram.
 
-After the site folder is connected to its own GitHub repository and Pages is enabled, the agent uses this single command instead:
+## Live hosting and publishing
+
+The public site is deployed at https://ehdudssal3-hub.github.io/insta-link-hub/. GitHub Actions redeploys it whenever a commit reaches `main`. The repository is public for GitHub Free Pages, and currently has no collaborators; visitors can read the source, but only the owner account can write to it.
+
+After signing in to GitHub once on the machine that runs the agent (`git credential-manager github login --browser`), the agent uses this command from the project root:
 
 ```powershell
 cd ..
 python scripts/publish_link_hub.py --job data/jobs/<job-folder>
 ```
 
-That command checks the review gate, imports the job, commits only `site/data.json`, and pushes to `main`. The workflow in `.github/workflows/pages.yml` then deploys the static site. A free GitHub Pages site requires a public repository, so the site source and its product links will be public too. The site folder is isolated from the surrounding agent project to prevent other workspace files from being published.
+That command checks the review gate, imports the job, commits only `site/data.json`, and pushes to `main`. The workflow in `.github/workflows/pages.yml` then deploys the static site. The site folder is isolated from the surrounding agent project to prevent other workspace files from being published. Site source and product links are public, so do not put credentials or private data in them.
