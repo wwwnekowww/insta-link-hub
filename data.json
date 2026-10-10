@@ -36,11 +36,24 @@
     },
     {
       "id": "driving-gear",
-      "name": "운전 생활 가이드",
-      "handle": "@drive.life.demo",
+      "name": "차잘알알파",
+      "handle": "@alphamale.choice",
       "category": "운전 · 차량 용품",
-      "tagline": "차 안에서 자주 쓰는 실용템을 소개해요.",
+      "tagline": "운전과 차량 생활에 도움 되는 아이템을 소개해요.",
       "emoji": "🚘",
+      "avatarImage": "assets/driving-account.png",
+      "socialLinks": [
+        {
+          "label": "Instagram",
+          "icon": "◎",
+          "url": "https://www.instagram.com/alphamale.choice/"
+        },
+        {
+          "label": "YouTube",
+          "icon": "▶",
+          "url": "https://www.youtube.com/@alphamale.choice"
+        }
+      ],
       "tone": "drive",
       "coverLabel": "ON THE ROAD / DRIVE",
       "links": [

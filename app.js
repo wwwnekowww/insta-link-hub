@@ -42,7 +42,7 @@ function renderHome() {
       <div class="account-grid">
         ${dataset.accounts.map((account, index) => `
           <a class="account-card tone-${safeText(account.tone)}" href="${accountUrl(account.id)}" aria-label="${safeText(account.name)} 페이지 열기">
-            <span class="account-avatar">${safeText(account.emoji)}</span>
+            <span class="account-avatar">${account.avatarImage ? `<img src="${safeText(account.avatarImage)}" alt="">` : safeText(account.emoji)}</span>
             <span class="account-info"><span class="account-category">${safeText(account.category)}</span><strong>${safeText(account.name)}</strong><small>${safeText(account.handle)}</small></span>
             <span class="account-index">${String(index + 1).padStart(2, "0")} <b>↗</b></span>
           </a>`).join("")}
@@ -60,12 +60,16 @@ function renderProfile(account) {
       <div class="profile-cover" aria-hidden="true"><small class="cover-label">${safeText(account.coverLabel || account.category)}</small><span>${safeText(account.emoji)}</span><i></i><b></b></div>
       <div class="profile-content">
         <div class="profile-identity">
-          <div class="profile-avatar">${safeText(account.emoji)}</div>
+          <div class="profile-avatar">${account.avatarImage ? `<img src="${safeText(account.avatarImage)}" alt="">` : safeText(account.emoji)}</div>
           <span class="profile-category">${safeText(account.category)}</span>
           <h1>${safeText(account.name)}</h1>
           <p class="profile-handle">${safeText(account.handle)}</p>
           <p class="profile-bio">${safeText(account.tagline)}</p>
         </div>
+        ${account.socialLinks?.length ? `
+          <nav class="social-links" aria-label="${safeText(account.name)} 소셜 계정">
+            ${account.socialLinks.map((link) => `<a class="social-link" href="${safeText(link.url)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">${safeText(link.icon)}</span><span>${safeText(link.label)}</span><b aria-hidden="true">↗</b></a>`).join("")}
+          </nav>` : ''}
         <div class="number-search">
           <label for="profile-number-search">번호로 찾기</label>
           <div class="number-search-control"><span aria-hidden="true">#</span><input id="profile-number-search" type="search" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="번호 입력 (예: 03)" data-number-search><button type="button" data-clear-search>초기화</button></div>
