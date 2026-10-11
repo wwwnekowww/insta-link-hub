@@ -126,6 +126,55 @@
       "coverLabel": "DAILY EDIT / PICKS",
       "posts": [
         {
+          "index": 2,
+          "id": "post-2-자취-필수템",
+          "sourceJobId": "20261011_205456_ref_soft_overlay",
+          "title": "자취 필수템",
+          "topic": "자취 필수템",
+          "products": [
+            {
+              "index": 6,
+              "sourceProductId": "8653292236",
+              "title": "이런 아이템 찾았다면",
+              "subtitle": "요즘 찾던 분위기에 딱 맞는 무드 · 취향에 맞는 컬러와 구성으로 완성",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=8653292236&itemId=25121317130&vendorItemId=92120667887&traceid=V0-153-1354175dc8d07a61&requestid=20261011205455791059536155&token=31850C%7CGM&pt=0&slot=1",
+              "affiliateProgram": "coupang"
+            },
+            {
+              "index": 7,
+              "sourceProductId": "6370710129",
+              "title": "잠깐 이 타입 괜찮은데?",
+              "subtitle": "필요했던 순간에 꺼내 쓰기 좋은 템 · 내 취향에 맞춰 무드 바꿔봐",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=6370710129&itemId=13492578523&vendorItemId=93406496722&traceid=V0-153-a5ac37c5c3d50274&requestid=20261011205455791059536155&token=31850C%7CGM&pt=0&slot=2",
+              "affiliateProgram": "coupang"
+            },
+            {
+              "index": 8,
+              "sourceProductId": "7373074555",
+              "title": "취향템 고르는 중이면 주목",
+              "subtitle": "이런 느낌 찾던 사람 취향 저격 · 오늘 코디에 포인트로 더해봐",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=7373074555&itemId=19023954374&vendorItemId=86148227409&traceid=V0-153-b6954bf4a1910525&requestid=20261011205455791059536155&token=31850C%7CGM&pt=0&slot=3",
+              "affiliateProgram": "coupang"
+            },
+            {
+              "index": 9,
+              "sourceProductId": "5655445610",
+              "title": "이런 무드 좋아하면 봐봐",
+              "subtitle": "찾던 분위기라면 눈길 갈 아이템 · 작은 포인트로 무드 확 바꾸기",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=5655445610&itemId=26323059632&vendorItemId=93300413063&traceid=V0-153-be1971f565f76663&requestid=20261011205455791059536155&token=31850C%7CGM&pt=0&slot=4",
+              "affiliateProgram": "coupang"
+            },
+            {
+              "index": 10,
+              "sourceProductId": "8350616562",
+              "title": "이것도 후보에 넣어볼까?",
+              "subtitle": "필요한 순간 분위기 살려줄 아이템 · 취향에 맞춰 포인트를 골라봐",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=8350616562&itemId=25225000919&vendorItemId=92221275412&traceid=V0-153-1bceaf9322725bf6&requestid=20261011205455791059536155&token=31850C%7CGM&pt=0&slot=5",
+              "affiliateProgram": "coupang"
+            }
+          ]
+        },
+        {
           "index": 1,
           "id": "travel-organizer-picks",
           "title": "캐리어 정리 5분 컷, 실속 여행 수납템",
