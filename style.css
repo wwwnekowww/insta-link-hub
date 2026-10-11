@@ -49,10 +49,8 @@ button{font:inherit}
 .demo-note strong{color:#3f454c;font-weight:600}
 .site-footer{display:flex;flex-direction:column;align-items:center;gap:5px;padding:19px 10px calc(25px + env(safe-area-inset-bottom));border-top:1px solid #dfe1e4;color:#747a83;text-align:center}
 .site-footer p{margin:0;font-size:11px;font-weight:600}
-.site-footer small{color:#858b93;font-size:9px;line-height:1.6}
-.back-link{display:inline-flex;align-items:center;margin:24px 0 16px;color:#626a74;font-size:11px}
-.back-link:hover{color:#252b31}
-.profile-page{--tone:#e8edf1;--tone-deep:#c5d0da;--tone-ink:#52687b;width:min(100%,500px);margin:0 auto;overflow:hidden;border:1px solid #dfe2e5;border-radius:14px;background:#fff;box-shadow:0 12px 34px rgba(35,43,51,.07)}
+.back-link{display:none!important}
+.profile-page{--tone:#e8edf1;--tone-deep:#c5d0da;--tone-ink:#52687b;width:min(100%,500px);margin:24px auto 0;overflow:hidden;border:1px solid #dfe2e5;border-radius:14px;background:#fff;box-shadow:0 12px 34px rgba(35,43,51,.07)}
 .profile-cover{position:relative;height:118px;overflow:hidden;background:var(--tone)}
 .profile-cover:before{position:absolute;top:-90px;right:-18px;width:245px;height:245px;border:1px solid color-mix(in srgb,var(--tone-ink),transparent 83%);border-radius:50%;content:""}
 .profile-cover:after{position:absolute;top:-58px;right:31px;width:180px;height:180px;border:1px solid color-mix(in srgb,var(--tone-ink),transparent 86%);border-radius:50%;content:""}

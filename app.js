@@ -55,7 +55,6 @@ function renderProfile(account) {
   const posts = Array.isArray(account.posts) ? account.posts : [];
   const links = account.links || [];
   app.innerHTML = `
-    <a class="back-link" href="#/">← 계정 목록</a>
     <section class="profile-page tone-${safeText(account.tone)}">
       <div class="profile-cover" aria-hidden="true"><small class="cover-label">${safeText(account.coverLabel || account.category)}</small><span>${safeText(account.emoji)}</span><i></i><b></b></div>
       <div class="profile-content">
