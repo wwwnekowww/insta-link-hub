@@ -58,27 +58,14 @@
       "coverLabel": "ON THE ROAD / DRIVE",
       "links": [
         {
-          "icon": "⌁",
-          "title": "차량용 편의 용품",
-          "subtitle": "매일 운전에 필요한 아이템"
-        },
-        {
-          "icon": "▣",
-          "title": "차량 정리·수납",
-          "subtitle": "차 안을 깔끔하게 유지하기"
-        },
-        {
-          "icon": "⚑",
-          "title": "안전·비상용품 체크",
-          "subtitle": "차에 두면 유용한 준비물"
-        },
-        {
-          "icon": "↗",
-          "title": "운전용품 추천 모음",
-          "subtitle": "용도별로 한 번에 보기"
+          "index": "01",
+          "icon": "🚘",
+          "title": "01번 브론코 차량용 메모리폼 목쿠션 2p",
+          "subtitle": "장거리 운전 헤드레스트 틈새 경추 피로",
+          "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=auto-car-info&pageKey=7708669504&itemId=2509786266&vendorItemId=70502849642"
         }
       ],
-      "demo": true
+      "demo": false
     },
     {
       "id": "game-gear",
