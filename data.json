@@ -109,53 +109,61 @@
     },
     {
       "id": "women-20s",
-      "name": "이십대 픽",
-      "handle": "@twenties.pick.demo",
+      "name": "쮸언니",
+      "handle": "@han2_rrong",
       "category": "20대 여성 · 데일리 추천",
-      "tagline": "일상에서 자주 쓰는 제품을 직접 골라요.",
+      "tagline": "일상에서 자주 쓰는 실속템을 직접 골라요.",
       "emoji": "✳",
+      "avatarImage": "assets/women-account.png",
+      "socialLinks": [
+        {
+          "label": "Instagram",
+          "icon": "◎",
+          "url": "https://www.instagram.com/han2_rrong/"
+        }
+      ],
       "tone": "women",
       "coverLabel": "DAILY EDIT / PICKS",
       "posts": [
         {
           "index": 1,
-          "id": "daily-style-picks",
-          "title": "출근 전 10분, 빠르게 준비하는 데일리템",
+          "id": "travel-organizer-picks",
+          "title": "캐리어 정리 5분 컷, 실속 여행 수납템",
           "products": [
             {
               "index": 1,
-              "title": "가벼운 데일리 숄더백",
-              "subtitle": "출근과 약속에 함께 들기 좋은 크기",
-              "url": ""
+              "title": "전동펌프 압축팩 9매 세트",
+              "subtitle": "캐리어 부피 줄이고 싶을 때 필수",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=9536025011&itemId=28441752483&vendorItemId=95392495929"
             },
             {
               "index": 2,
-              "title": "슬림 카드지갑",
-              "subtitle": "가방 속 부피를 줄이는 작은 지갑",
-              "url": ""
+              "title": "여행용 수납백 2개 세트",
+              "subtitle": "옷이랑 소품 깔끔하게 분리 수납",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=9613514010&itemId=28703221675&vendorItemId=95644226066"
             },
             {
               "index": 3,
-              "title": "휴대용 보조배터리",
-              "subtitle": "외출 중 배터리 걱정을 덜어주는 아이템",
-              "url": ""
+              "title": "대용량 여행 파우치",
+              "subtitle": "세면도구·화장품 한 번에 정리",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=8269588661&itemId=23812290610&vendorItemId=90835492976"
             },
             {
               "index": 4,
-              "title": "컴팩트 파우치",
-              "subtitle": "립밤과 작은 소지품을 한곳에",
-              "url": ""
+              "title": "투명 워시백 파우치",
+              "subtitle": "내용물 한눈에 보여서 찾기 편함",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=8331776510&itemId=24056254341&vendorItemId=91072973142"
             },
             {
               "index": 5,
-              "title": "심플 헤어 집게핀",
-              "subtitle": "간단한 스타일 정리에 쓰기 좋은 소품",
-              "url": ""
+              "title": "다용도 소지품 정리백",
+              "subtitle": "자주 꺼내는 소품만 쏙 보관",
+              "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=20woman-insta&pageKey=7977467614&itemId=22119747966&vendorItemId=89166649725"
             }
           ]
         }
       ],
-      "demo": true
+      "demo": false
     },
     {
       "id": "parenting-gear",
