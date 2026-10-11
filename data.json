@@ -58,20 +58,27 @@
       "coverLabel": "ON THE ROAD / DRIVE",
       "links": [
         {
-          "index": 1,
-          "id": "bronco-neck-pillow-20261011-1",
-          "sourceJobId": "bronco-neck-pillow-20261011",
-          "sourceProductId": "7708669504",
+          "icon": "⌁",
+          "title": "차량용 편의 용품",
+          "subtitle": "매일 운전에 필요한 아이템"
+        },
+        {
+          "icon": "▣",
+          "title": "차량 정리·수납",
+          "subtitle": "차 안을 깔끔하게 유지하기"
+        },
+        {
+          "icon": "⚑",
+          "title": "안전·비상용품 체크",
+          "subtitle": "차에 두면 유용한 준비물"
+        },
+        {
           "icon": "↗",
-          "title": "브론코 차량용 메모리폼 목쿠션 2p",
-          "subtitle": "경추 C자 곡선 지지 장시간 운전 피로 완화",
-          "url": "https://link.coupang.com/re/AFFSDP?lptag=AF1893995&subid=auto-car-info&pageKey=7708669504&itemId=2509786266&vendorItemId=70502849642&traceid=V0-153-a9fcfcb2747f6615&clickBeacon=b89d48c0-c4bb-11f1-8c51-7d83cc059e17%7E3&requestid=20261011000315919119625707&token=31850C%7CCMG&pt=1&slot=1",
-          "sourceUrl": "https://www.coupang.com/vp/products/7708669504?itemId=2509786266&vendorItemId=70502849642",
-          "affiliateProgram": "coupang"
+          "title": "운전용품 추천 모음",
+          "subtitle": "용도별로 한 번에 보기"
         }
       ],
-      "demo": false,
-      "posts": []
+      "demo": true
     },
     {
       "id": "game-gear",
