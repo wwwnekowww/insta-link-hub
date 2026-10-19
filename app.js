@@ -70,21 +70,21 @@ function renderProfile(account) {
             ${account.socialLinks.map((link) => `<a class="social-link" href="${safeText(link.url)}" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">${safeText(link.icon)}</span><span>${safeText(link.label)}</span><b aria-hidden="true">↗</b></a>`).join("")}
           </nav>` : ''}
         <div class="number-search">
-          <label for="profile-number-search">번호로 찾기</label>
-          <div class="number-search-control"><span aria-hidden="true">#</span><input id="profile-number-search" type="search" inputmode="numeric" pattern="[0-9]*" autocomplete="off" placeholder="번호 입력 (예: 03)" data-number-search><button type="button" data-clear-search>초기화</button></div>
-          <p class="number-search-status" aria-live="polite" data-search-status>번호를 입력하면 해당 링크만 표시됩니다.</p>
+          <label for="profile-number-search">키워드 또는 번호로 찾기</label>
+          <div class="number-search-control"><span aria-hidden="true">🔍</span><input id="profile-number-search" type="search" autocomplete="off" placeholder="키워드 또는 번호 검색 (예: 욕실 꿀템, 136)" data-number-search><button type="button" data-clear-search>초기화</button></div>
+          <p class="number-search-status" aria-live="polite" data-search-status>영상에서 안내된 키워드(예: 욕실 꿀템)나 번호를 입력하세요.</p>
         </div>
         ${posts.length ? `
           <section class="post-bundles" aria-label="${safeText(account.name)} 게시물별 상품 링크">
             ${posts.map((post, postPosition) => `
-              <article class="post-bundle" data-default-expanded="${postPosition === 0}">
+              <article class="post-bundle" data-default-expanded="${postPosition === 0}" data-search-topic="${safeText(post.topic || '')}" data-search-title="${safeText(post.title || '')}">
                 <button class="post-toggle" type="button" aria-expanded="${postPosition === 0}" aria-controls="products-${safeText(account.id)}-${safeText(post.id || postPosition + 1)}" data-toggle-post>
                   <span class="post-toggle-title"><span class="post-index">POST ${String(post.index || postPosition + 1).padStart(2, "0")}</span><strong>${safeText(post.title)}</strong></span>
                   <span class="post-toggle-meta">상품 ${post.products.length}개 <span class="post-chevron" aria-hidden="true">⌄</span></span>
                 </button>
                 <ol class="product-links" id="products-${safeText(account.id)}-${safeText(post.id || postPosition + 1)}" ${postPosition === 0 ? "" : "hidden"}>
                   ${post.products.map((product, productPosition) => `
-                    <li data-search-number="${String(product.index || productPosition + 1).padStart(2, "0")}">
+                    <li data-search-number="${String(product.index || productPosition + 1).padStart(2, "0")}" data-search-text="${safeText((product.title || '') + ' ' + (product.subtitle || ''))}">
                       <a class="product-link ${product.url ? "" : "demo-link"}" href="${safeText(product.url || "#demo-link")}" ${product.url ? 'target="_blank" rel="noopener noreferrer"' : 'data-demo-link aria-disabled="true"'}>
                         <span class="product-index">${String(product.index || productPosition + 1).padStart(2, "0")}</span>
                         <span class="product-label"><strong>${safeText(product.title)}</strong><small>${safeText(product.subtitle)}</small></span>
@@ -97,7 +97,7 @@ function renderProfile(account) {
         ${links.length ? `
           <div class="profile-links" aria-label="${safeText(account.name)} 링크">
             ${links.map((link, index) => `
-              <a class="profile-link ${index === 0 && !posts.length ? "featured" : ""} ${link.url ? "" : "demo-link"}" data-search-number="${String(link.index || index + 1).padStart(2, "0")}" href="${safeText(link.url || "#demo-link")}" ${link.url ? 'target="_blank" rel="noopener noreferrer"' : 'data-demo-link aria-disabled="true"'}>
+              <a class="profile-link ${index === 0 && !posts.length ? "featured" : ""} ${link.url ? "" : "demo-link"}" data-search-number="${String(link.index || index + 1).padStart(2, "0")}" data-search-text="${safeText((link.title || '') + ' ' + (link.subtitle || ''))}" href="${safeText(link.url || "#demo-link")}" ${link.url ? 'target="_blank" rel="noopener noreferrer"' : 'data-demo-link aria-disabled="true"'}>
                 <span class="link-index">${String(link.index || index + 1).padStart(2, "0")}</span>
                 <span class="link-icon">${safeText(link.icon || "↗")}</span>
                 <span class="link-label"><strong>${safeText(link.title)}</strong><small>${safeText(link.subtitle)}</small></span>
@@ -155,39 +155,102 @@ document.addEventListener("click", (event) => {
 document.addEventListener("input", (event) => {
   const input = event.target.closest("[data-number-search]");
   if (!input) return;
-  input.value = input.value.replace(/\D/g, "");
-  const query = input.value ? normalizedNumber(input.value) : "";
+  const rawQuery = input.value.trim();
   const profile = input.closest(".profile-content");
   const status = profile.querySelector("[data-search-status]");
-  const matches = [...profile.querySelectorAll("[data-search-number]")];
+  
+  if (!rawQuery) {
+    // Reset all
+    profile.querySelectorAll("[data-search-number]").forEach((item) => { item.hidden = false; });
+    profile.querySelectorAll(".post-bundle").forEach((bundle) => {
+      bundle.hidden = false;
+      const defaultExpanded = bundle.dataset.defaultExpanded === "true";
+      const toggle = bundle.querySelector("[data-toggle-post]");
+      const productList = bundle.querySelector(".product-links");
+      if (toggle) toggle.setAttribute("aria-expanded", String(defaultExpanded));
+      if (productList) productList.hidden = !defaultExpanded;
+    });
+    status.textContent = "영상에서 안내된 키워드(예: 욕실 꿀템)나 번호를 입력하세요.";
+    return;
+  }
+
+  const isNumeric = /^\d+$/.test(rawQuery);
+  const normQuery = rawQuery.toLowerCase().replace(/\s+/g, "");
   let matchCount = 0;
 
-  matches.forEach((item) => {
-    const matched = !query || normalizedNumber(item.dataset.searchNumber) === query;
-    item.hidden = !matched;
-    if (query && matched) matchCount += 1;
-  });
+  if (isNumeric) {
+    const numQuery = normalizedNumber(rawQuery);
+    // Match by item number
+    profile.querySelectorAll(".post-bundle").forEach((bundle) => {
+      const items = [...bundle.querySelectorAll("li[data-search-number]")];
+      let bundleHasMatch = false;
+      items.forEach((item) => {
+        const matched = normalizedNumber(item.dataset.searchNumber) === numQuery;
+        item.hidden = !matched;
+        if (matched) {
+          bundleHasMatch = true;
+          matchCount += 1;
+        }
+      });
+      bundle.hidden = !bundleHasMatch;
+      const toggle = bundle.querySelector("[data-toggle-post]");
+      const productList = bundle.querySelector(".product-links");
+      if (bundleHasMatch) {
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+        if (productList) productList.hidden = false;
+      }
+    });
 
-  profile.querySelectorAll(".post-bundle").forEach((bundle) => {
-    const hasVisibleProduct = [...bundle.querySelectorAll("[data-search-number]")].some((item) => !item.hidden);
-    const toggle = bundle.querySelector("[data-toggle-post]");
-    const productList = bundle.querySelector(".product-links");
-    bundle.hidden = Boolean(query && !hasVisibleProduct);
-    if (query && hasVisibleProduct) {
-      toggle.setAttribute("aria-expanded", "true");
-      productList.hidden = false;
-    } else if (!query) {
-      const defaultExpanded = bundle.dataset.defaultExpanded === "true";
-      toggle.setAttribute("aria-expanded", String(defaultExpanded));
-      productList.hidden = !defaultExpanded;
-    }
-  });
+    profile.querySelectorAll(".profile-links [data-search-number]").forEach((link) => {
+      const matched = normalizedNumber(link.dataset.searchNumber) === numQuery;
+      link.hidden = !matched;
+      if (matched) matchCount += 1;
+    });
 
-  status.textContent = !query
-    ? "번호를 입력하면 해당 링크만 표시됩니다."
-    : matchCount
-      ? `${query.padStart(2, "0")}번 항목 ${matchCount}개를 찾았어요.`
-      : `${query.padStart(2, "0")}번 항목이 없어요. 번호를 다시 확인해 주세요.`;
+    status.textContent = matchCount
+      ? `${numQuery.padStart(2, "0")}번 항목 ${matchCount}개를 찾았어요.`
+      : `${numQuery.padStart(2, "0")}번 항목이 없어요. 번호를 다시 확인해 주세요.`;
+  } else {
+    // Match by keyword (topic, post title, product title, subtitle)
+    profile.querySelectorAll(".post-bundle").forEach((bundle) => {
+      const bTopic = (bundle.dataset.searchTopic || "").toLowerCase().replace(/\s+/g, "");
+      const bTitle = (bundle.dataset.searchTitle || "").toLowerCase().replace(/\s+/g, "");
+      const bundleKeywordMatch = bTopic.includes(normQuery) || bTitle.includes(normQuery);
+
+      const items = [...bundle.querySelectorAll("li[data-search-number]")];
+      let itemMatchCountInBundle = 0;
+
+      items.forEach((item) => {
+        const itemText = (item.dataset.searchText || "").toLowerCase().replace(/\s+/g, "");
+        const matched = bundleKeywordMatch || itemText.includes(normQuery);
+        item.hidden = !matched;
+        if (matched) {
+          itemMatchCountInBundle += 1;
+          matchCount += 1;
+        }
+      });
+
+      const bundleVisible = bundleKeywordMatch || itemMatchCountInBundle > 0;
+      bundle.hidden = !bundleVisible;
+      const toggle = bundle.querySelector("[data-toggle-post]");
+      const productList = bundle.querySelector(".product-links");
+      if (bundleVisible) {
+        if (toggle) toggle.setAttribute("aria-expanded", "true");
+        if (productList) productList.hidden = false;
+      }
+    });
+
+    profile.querySelectorAll(".profile-links [data-search-number]").forEach((link) => {
+      const linkText = (link.dataset.searchText || "").toLowerCase().replace(/\s+/g, "");
+      const matched = linkText.includes(normQuery);
+      link.hidden = !matched;
+      if (matched) matchCount += 1;
+    });
+
+    status.textContent = matchCount
+      ? `'${rawQuery}' 관련 상품 ${matchCount}개를 찾았어요.`
+      : `'${rawQuery}' 검색 결과가 없어요. 다른 키워드를 입력해 보세요.`;
+  }
 });
 
 window.addEventListener("hashchange", () => {
