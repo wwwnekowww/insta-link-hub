@@ -530,6 +530,26 @@
       "demo": false
     },
     {
+      "id": "juburella",
+      "name": "주부렐라",
+      "handle": "@juburella",
+      "category": "살림 · 주방 · 생활용품",
+      "tagline": "알아두면 인생 편해지는 살림 꿀팁과 갓성비 생활템을 모아요.",
+      "emoji": "✨",
+      "avatarImage": "assets/housewife-account.png",
+      "socialLinks": [
+        {
+          "label": "YouTube",
+          "icon": "▶",
+          "url": "https://www.youtube.com/@juburella"
+        }
+      ],
+      "tone": "kitchen",
+      "coverLabel": "DAILY LIVING / JUBURELLA",
+      "links": [],
+      "demo": false
+    },
+    {
       "id": "game-gear",
       "name": "플레이 셋업",
       "handle": "@play.setup.demo",
