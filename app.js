@@ -8,7 +8,12 @@ function safeText(value = "") {
 }
 
 function accountUrl(id) { return `#/a/${encodeURIComponent(id)}`; }
-function accountById(id) { return dataset.accounts.find((account) => account.id === id); }
+function accountById(id) {
+  if (id === "parenting-gear" || id === "housewife") {
+    return dataset.accounts.find((account) => account.id === "juburella") || dataset.accounts.find((account) => account.id === id);
+  }
+  return dataset.accounts.find((account) => account.id === id);
+}
 function normalizedNumber(value) { return String(value).replace(/^0+/, "") || "0"; }
 
 function showToast(message) {
@@ -120,7 +125,12 @@ function route() {
   const parts = decodeURIComponent(location.hash.replace(/^#\/?/, "")).split("/").filter(Boolean);
   if (!parts.length) return renderHome();
   if (parts[0] !== "a" || !parts[1]) return renderNotFound();
-  const account = accountById(parts[1]);
+  let requestedId = parts[1];
+  if (requestedId === "parenting-gear" || requestedId === "housewife") {
+    location.replace("#/a/juburella");
+    return;
+  }
+  const account = accountById(requestedId);
   if (!account) return renderNotFound();
   renderProfile(account);
 }

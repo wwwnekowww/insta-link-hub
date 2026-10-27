@@ -476,16 +476,21 @@
     {
       "id": "juburella",
       "name": "주부렐라",
-      "handle": "@juburella",
+      "handle": "@bestmoms.choice",
       "category": "살림 · 주방 · 생활용품",
-      "tagline": "알아두면 인생 편해지는 살림 꿀팁과 갓성비 생활템을 모아요.",
-      "emoji": "✨",
+      "tagline": "아는 만큼 편해지는 살림 · 매일 바쁜 당신에게 꼭 필요한 실용 꿀템",
+      "emoji": "🍳",
       "avatarImage": "assets/housewife-account.png",
       "socialLinks": [
         {
+          "label": "Instagram",
+          "icon": "◎",
+          "url": "https://www.instagram.com/bestmoms.choice/"
+        },
+        {
           "label": "YouTube",
           "icon": "▶",
-          "url": "https://www.youtube.com/@juburella"
+          "url": "https://www.youtube.com/@bestmoms.choice"
         }
       ],
       "tone": "kitchen",
@@ -3178,39 +3183,6 @@
         }
       ],
       "demo": false
-    },
-    {
-      "id": "parenting-gear",
-      "name": "함께 크는 하루",
-      "handle": "@grow.together.demo",
-      "category": "육아 · 가족 생활",
-      "tagline": "육아하는 가족의 일상을 돕는 제품을 모아요.",
-      "emoji": "🧸",
-      "tone": "parent",
-      "coverLabel": "FAMILY DAYS / PICKS",
-      "links": [
-        {
-          "icon": "⌂",
-          "title": "수유·식사 준비",
-          "subtitle": "매일의 식사 시간을 위한 용품"
-        },
-        {
-          "icon": "▣",
-          "title": "외출·이동 필수템",
-          "subtitle": "가방에 챙기는 육아 아이템"
-        },
-        {
-          "icon": "◌",
-          "title": "놀이·정리 아이디어",
-          "subtitle": "집에서 함께 보내는 시간"
-        },
-        {
-          "icon": "↗",
-          "title": "연령별 추천 모음",
-          "subtitle": "시기별로 살펴보기"
-        }
-      ],
-      "demo": true
     },
     {
       "id": "health-picks",
